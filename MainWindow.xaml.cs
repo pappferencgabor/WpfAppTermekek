@@ -34,7 +34,6 @@ namespace SQL
 
             TermekBetolteseListaba();
 
-            AdatbazisLezaras();
         }
 
         string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=hardver";
@@ -104,7 +103,7 @@ namespace SQL
                 {
                     SQLSzukites += " and ";
                 }
-                SQLSzukites += $"kategoria = '{cbKategoria.SelectedItem}'";
+                SQLSzukites += $"kategória = '{cbKategoria.SelectedItem}'";
                 vanFeltetel = true;
             }
 
@@ -175,11 +174,11 @@ namespace SQL
         {
             SaveFileDialog sd = new SaveFileDialog();
             sd.DefaultExt = ".csv";
-            string fileName = sd.FileName;
+            sd.Filter = "CSV file (*.csv)|*.csv| All Files (*.*)|*.*";
 
             if (sd.ShowDialog() == true)
             {
-                StreamWriter sw = new StreamWriter("");
+                StreamWriter sw = new StreamWriter(sd.FileName);
                 foreach (var item in termekek)
                 {
                     sw.WriteLine(item.ToCSVstr());
