@@ -1,0 +1,36 @@
+﻿<Window x:Class="SQL.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label Content="Kategória"/>
+            <ComboBox x:Name="cbKategoria"/>
+            <Label Content="Gyártó"/>
+            <ComboBox x:Name="cbGyarto"/>
+            <Label Content="Keresés a terméknévben"/>
+            <TextBox x:Name="txtTermek"
+                     Background="LightGreen"/>
+            <Button x:Name="btnSzukit"
+                    Margin="0 20 0 0"
+                    Content="Szűrés a feltételekre" Click="btnSzukit_Click"/>
+            <Button x:Name="btnMentes"
+                    Margin="0 20 0 0"
+                    Content="Mentés CSV fájlba" Click="btnMentes_Click"/>
+
+        </StackPanel>
+        <DataGrid  x:Name="dgTermekek" 
+                   Grid.Column="1"
+                   Background="Cornsilk"
+                   Margin="5"/>
+
+    </Grid>
+</Window>
